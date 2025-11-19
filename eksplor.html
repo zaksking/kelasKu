@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KelasKu — Eksplor Materi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --kk-primary: #4361ee;
+      --hero-bg: #f8f9fa;
+      --max-content-width: 1100px;
+    }
+
+    body{
+      font-family: "Poppins", sans-serif;
+      color: #222;
+    }
+
+    .container-narrow { max-width: 1100px; }
+
+    /* navbar */
+    .navbar-brand{ font-weight:700; }
+    .nav-center { position:absolute; left:50%; transform:translateX(-50%); }
+    @media(max-width:992px){ .nav-center{ position:static; transform:none; margin-top:0.5rem; } }
+
+    /* search bar */
+    .search-wrapper{
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    }
+    .search-input{
+      height:50px;
+      font-size:1.1rem;
+    }
+
+    /* material cards */
+    .card-materi img{ height:160px; object-fit:cover; }
+    .badge-jurusan{
+      background:var(--kk-primary);
+      color:white;
+      padding:4px 10px;
+      border-radius:6px;
+      font-size:.75rem;
+      font-weight:600;
+    }
+
+    /* footer */
+    footer{
+      background:#0f1724;
+      color:#cbd5e1;
+      padding:2.5rem 0;
+    }
+    footer a{ color:#cbd5e1; text-decoration:none; }
+    footer a:hover{ text-decoration:underline; color:white; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+    <div class="container container-narrow">
+      <a class="navbar-brand fs-4" style="color:#4361ee" href="index.html">KelasKu</a>
+
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navBar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navBar" class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto nav-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link active" href="eksplor.html">Eksplor</a></li>
+          <li class="nav-item"><a class="nav-link" href="uplod.html">Upload</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#tentang">Tentang Kami</a></li>
+        </ul>
+
+        <div class="d-flex">
+          <button class="btn btn-outline-primary me-2">Login</button>
+          <button class="btn btn-primary" style="background:#4361ee; border-color:#4361ee;">Daftar</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SEARCH & FILTER -->
+  <section class="py-4" style="background:#f8f9fa">
+    <div class="container container-narrow">
+      
+      <div class="search-wrapper mb-4">
+        <input type="text" placeholder="Cari materi, judul, mapel..." class="form-control search-input">
+      </div>
+
+      <!-- FILTERS -->
+      <div class="row g-3">
+        <div class="col-md-4">
+          <select class="form-select">
+            <option selected>Semua Jurusan</option>
+            <option>TKJ</option>
+            <option>RPL</option>
+            <option>AKL</option>
+            <option>TEI</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select class="form-select">
+            <option selected>Semua Mata Pelajaran</option>
+            <option>Matematika</option>
+            <option>Bahasa Indonesia</option>
+            <option>Pemrograman Dasar</option>
+            <option>Produktif Teknik</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select class="form-select">
+            <option selected>Semua Kelas</option>
+            <option>X</option>
+            <option>XI</option>
+            <option>XII</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIST OF MATERIALS -->
+  <section class="py-5">
+    <div class="container container-narrow">
+
+      <h4 class="mb-4">Hasil Eksplor Materi</h4>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <!-- CARD 1 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Sejarah+Indonesia" class="card-img-top" alt="">
+            <div class="card-body">
+              <span class="badge-jurusan">TKJ</span>
+              <h6 class="mt-2 mb-1">Rangkuman Sejarah Indonesia</h6>
+              <p class="text-muted small mb-2">Ringkasan BAB 1 - 3</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=A" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Andi - TKJ</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>124</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Matematika" class="card-img-top" alt="">
+            <div class="card-body">
+              <span class="badge-jurusan">RPL</span>
+              <h6 class="mt-2 mb-1">Matematika Teknik</h6>
+              <p class="text-muted small mb-2">Persamaan Linear</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=S" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Siti - RPL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>98</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Pemrograman" class="card-img-top" alt="">
+            <div class="card-body">
+              <span class="badge-jurusan">RPL</span>
+              <h6 class="mt-2 mb-1">Dasar Pemrograman</h6>
+              <p class="text-muted small mb-2">Struktur Dasar Coding</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=B" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Budi - RPL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>76</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Produktif" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan bg-warning text-dark">AKL</span>
+              <h6 class="mt-2 mb-1">Akuntansi Dasar</h6>
+              <p class="text-muted small mb-2">Neraca & Jurnal</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=R" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Rina - AKL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>54</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Bahasa" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan bg-danger">XII</span>
+              <h6 class="mt-2 mb-1">Bahasa Indonesia</h6>
+              <p class="text-muted small mb-2">Materi Teks Eksposisi</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=N" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Nina - XII</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>67</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Animasi" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan bg-info text-dark">TEI</span>
+              <h6 class="mt-2 mb-1">Dasar Elektronika</h6>
+              <p class="text-muted small mb-2">Rangkaian Dasar</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=F" class="rounded-circle me-2" width="32">
+                <span class="small text-muted">Fajar - TEI</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>32</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container container-narrow">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5 class="text-white">KelasKu</h5>
+          <p class="small text-muted">Platform berbagi catatan untuk siswa SMK.</p>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Link</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Ikuti Kami</h6>
+          <a href="#" class="me-3"><i class="bi bi-instagram fs-4"></i></a>
+          <a href="#"><i class="bi bi-twitter fs-4"></i></a>
+          <p class="small text-muted mt-3">© <span id="year"></span> KelasKu.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

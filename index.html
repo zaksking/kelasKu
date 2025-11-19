@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KelasKu — Berbagi Catatan SMK</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bs-primary: #4361ee; /* override bootstrap primary for consistency */
+      --kk-primary: #4361ee;
+      --hero-bg: #f8f9fa;
+      --max-content-width: 1100px;
+    }
+
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Navbar tweaks */
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media (max-width: 991.98px){
+      .nav-center { position: static; transform: none; margin-top: .5rem; }
+    }
+
+    /* Hero */
+    .hero {
+      background-color: var(--hero-bg);
+      padding: 5.5rem 0;
+    }
+    .hero .headline {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+    }
+    @media (min-width: 992px){
+      .hero .headline { font-size: 2.6rem; }
+    }
+    .btn-kk {
+      background-color: var(--kk-primary);
+      border-color: var(--kk-primary);
+    }
+    .btn-kk:hover { background-color: #2f45cc; border-color: #2f45cc; }
+
+    /* Feature cards */
+    .feature-icon {
+      font-size: 2.2rem;
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, rgba(67,97,238,0.12), rgba(67,97,238,0.06));
+      color: var(--kk-primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Popular cards */
+    .card-materi img {
+      object-fit: cover;
+      height: 160px;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f1724;
+      color: #cbd5e1;
+      padding: 2.5rem 0;
+    }
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; color: white; }
+
+    /* Utility */
+    .container-narrow { max-width: var(--max-content-width); margin: 0 auto; }
+    .small-muted { color: #6b7280; font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container container-narrow py-2">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Logo teks -->
+        <span class="me-2 fs-4" style="color:var(--kk-primary)">KelasKu</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse position-relative" id="navCollapse">
+        <!-- center menu -->
+        <ul class="navbar-nav mx-auto nav-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="eksplor.html">Eksplor</a></li>
+          <li class="nav-item"><a class="nav-link" href="uplod.html">Upload</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+        </ul>
+
+        <!-- right buttons -->
+        <div class="d-flex ms-auto">
+          <button class="btn btn-outline-primary me-2 d-none d-lg-inline" id="btnLoginTop">Login</button>
+          <button class="btn btn-kk text-white" id="btnDaftarTop">Daftar</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container container-narrow">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="headline mb-3">Catat, Bagikan, Berkolaborasi.</h1>
+          <p class="lead mb-4">Tingkatkan pemahamanmu dengan berbagi catatan dan materi dengan seluruh siswa SMK.</p>
+          <div class="d-flex gap-2">
+            <a href="#materi-populer" class="btn btn-kk btn-lg text-white">Jelajahi Materi</a>
+            <a href="#upload" class="btn btn-outline-secondary btn-lg">Upload Catatanmu</a>
+          </div>
+          <div class="mt-4 small-muted">Bergabung dengan ribuan siswa SMK yang saling membantu.</div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <!-- Illustrative placeholder -->
+          <div class="p-4 rounded-3 shadow-sm" style="background: linear-gradient(180deg, white, #f6f8ff);">
+            <img src="https://placehold.co/600x360?text=Ilustrasi+KelasKu" alt="Ilustrasi KelasKu" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section class="py-5">
+    <div class="container container-narrow">
+      <div class="text-center mb-5">
+        <h3 class="mb-2">Kenapa KelasKu?</h3>
+        <p class="small-muted mb-0">Fitur yang dirancang untuk mempermudah belajar dan berbagi di lingkungan SMK.</p>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="h-100 d-flex flex-column align-items-start">
+            <div class="feature-icon"><i class="bi bi-journal-bookmark"></i></div>
+            <h5 class="mb-2">Cari Berbagai Materi</h5>
+            <p class="small-muted mb-0">Temukan catatan dari semua jurusan dan kelas.</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="h-100 d-flex flex-column align-items-start">
+            <div class="feature-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+            <h5 class="mb-2">Upload & Berbagi</h5>
+            <p class="small-muted mb-0">Bantu temanmu dengan membagikan catatan terbaikmu.</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="h-100 d-flex flex-column align-items-start">
+            <div class="feature-icon"><i class="bi bi-star-fill"></i></div>
+            <h5 class="mb-2">Rangkuman Terpercaya</h5>
+            <p class="small-muted mb-0">Materi sudah diverifikasi oleh guru.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR MATERIALS -->
+  <section id="materi-populer" class="py-5 bg-white">
+    <div class="container container-narrow">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">Materi Terpopuler Minggu Ini</h4>
+        <a href="#eksplor" class="small-muted text-decoration-none">Lihat semua →</a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Card 1 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Sejarah+Indonesia" class="card-img-top" alt="Rangkuman Sejarah Indonesia">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title mb-1">Rangkuman Sejarah Indonesia Kelas X</h6>
+              <p class="small-muted mb-3">Andi - TKJ</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="small-muted"><i class="bi bi-download me-1"></i> <span class="download-count" data-id="1">124</span></div>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary btn-download" data-id="1"><i class="bi bi-cloud-arrow-down"></i> Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Matematika+Teknik" class="card-img-top" alt="Rangkuman Matematika">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title mb-1">Rangkuman Matematika Teknik Kelas XI</h6>
+              <p class="small-muted mb-3">Siti - TKJ</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="small-muted"><i class="bi bi-download me-1"></i> <span class="download-count" data-id="2">98</span></div>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary btn-download" data-id="2"><i class="bi bi-cloud-arrow-down"></i> Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Pemrograman+Dasar" class="card-img-top" alt="Rangkuman Pemrograman">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title mb-1">Pemrograman Dasar — Rangkuman Praktis</h6>
+              <p class="small-muted mb-3">Budi - RPL</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="small-muted"><i class="bi bi-download me-1"></i> <span class="download-count" data-id="3">76</span></div>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary btn-download" data-id="3"><i class="bi bi-cloud-arrow-down"></i> Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- row -->
+    </div>
+  </section>
+
+  <!-- SIMPLE UPLOAD CTA -->
+  <section id="upload" class="py-5">
+    <div class="container container-narrow text-center">
+      <div class="p-4 rounded-3 shadow-sm">
+        <h5>Punya catatan keren?</h5>
+        <p class="small-muted mb-3">Upload dan bantu teman sekelasmu belajar lebih efektif.</p>
+        <button class="btn btn-kk btn-lg text-white" id="openUploadModal"><i class="bi bi-cloud-arrow-up me-2"></i> Upload Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section id="tentang" class="py-5 bg-white">
+    <div class="container container-narrow">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h5>Tentang KelasKu</h5>
+          <p class="small-muted">KelasKu adalah platform berbagi catatan yang dibuat untuk memudahkan siswa SMK mencari, berbagi, dan memverifikasi materi belajar. Visi kami adalah mendorong kolaborasi antar siswa dan dukungan dari pendidik.</p>
+          <ul class="small-muted">
+            <li>Fokus pada lingkungan SMK</li>
+            <li>Materi diverifikasi guru</li>
+            <li>Mudah diakses dan gratis</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="https://placehold.co/600x360?text=Tentang+KelasKu" alt="Tentang KelasKu" class="img-fluid rounded shadow-sm">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-5">
+    <div class="container container-narrow">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="d-flex align-items-center mb-2">
+            <span class="fs-5 me-2" style="color: white; font-weight:600">KelasKu</span>
+          </div>
+          <p class="small-muted mb-0">Platform yang didesign untuk berbagi catatan dan materi untuk siswa SMK.</p>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h6 style="color: white">Link</h6>
+          <ul class="list-unstyled small-muted">
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat &amp; Ketentuan</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h6 style="color: white">Ikuti Kami</h6>
+          <div class="d-flex gap-3 align-items-center">
+            <a href="#" class="d-inline-block" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="#" class="d-inline-block" aria-label="Twitter"><i class="bi bi-twitter fs-4"></i></a>
+          </div>
+          <div class="mt-3 small-muted">© <span id="year"></span> KelasKu. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LOGIN / REGISTER MODAL -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Login ke KelasKu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <form id="authForm">
+            <div class="mb-3">
+              <label for="emailAuth" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailAuth" placeholder="nama@sekolah.sch.id" required>
+            </div>
+            <div class="mb-3">
+              <label for="passwordAuth" class="form-label">Kata Sandi</label>
+              <input type="password" class="form-control" id="passwordAuth" placeholder="••••••" required>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div><a href="#" class="small-muted">Lupa kata sandi?</a></div>
+              <div>
+                <button type="submit" class="btn btn-kk text-white">Login</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer small-muted">
+          Belum punya akun? <a href="#" id="toRegister"> Daftar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD MODAL -->
+  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Upload Catatan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <form id="uploadForm">
+            <div class="mb-3">
+              <label for="judul" class="form-label">Judul Materi</label>
+              <input type="text" class="form-control" id="judul" placeholder="Contoh: Rangkuman Sejarah Indonesia Kelas X" required>
+            </div>
+            <div class="mb-3">
+              <label for="jurusan" class="form-label">Jurusan</label>
+              <select id="jurusan" class="form-select" required>
+                <option value="">Pilih jurusan...</option>
+                <option>TKJ</option>
+                <option>RPL</option>
+                <option>OTKP</option>
+                <option>TEI</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="uploader" class="form-label">Nama Pengupload</label>
+              <input type="text" class="form-control" id="uploader" placeholder="Nama kamu" required>
+            </div>
+            <div class="mb-3">
+              <label for="fileMateri" class="form-label">File (PDF/IMG)</label>
+              <input class="form-control" type="file" id="fileMateri" accept=".pdf,image/*" required>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-kk text-white">Upload & Bagikan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modals
+    const authModalEl = document.getElementById('authModal');
+    const uploadModalEl = document.getElementById('uploadModal');
+    const authModal = new bootstrap.Modal(authModalEl);
+    const uploadModal = new bootstrap.Modal(uploadModalEl);
+
+    // Open login/register from navbar
+    document.getElementById('btnLoginTop').addEventListener('click', () => authModal.show());
+    document.getElementById('btnDaftarTop').addEventListener('click', () => authModal.show());
+
+    // Open upload modal from CTA
+    document.getElementById('openUploadModal').addEventListener('click', () => uploadModal.show());
+
+    // Simple auth form submission (demo)
+    document.getElementById('authForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Demo behaviour: close modal and show toast/alert
+      authModal.hide();
+      alert('Login berhasil (demo). Selamat datang!');
+      this.reset();
+    });
+
+    // Upload form demo
+    document.getElementById('uploadForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // In real app you'd send file to server. Here, show success message and close modal.
+      const judul = document.getElementById('judul').value;
+      uploadModal.hide();
+      alert('Material "' + judul + '" berhasil diupload (demo). Terima kasih sudah berbagi!');
+      this.reset();
+    });
+
+    // Download button behaviour: increases counter (frontend demo)
+    document.querySelectorAll('.btn-download').forEach(btn => {
+      btn.addEventListener('click', function(){
+        const id = this.dataset.id;
+        const el = document.querySelector('.download-count[data-id="' + id + '"]');
+        if(el){
+          // parse current count and increment
+          let count = parseInt(el.textContent || '0', 10);
+          count = isNaN(count) ? 1 : count + 1;
+          el.textContent = count;
+          // simulate download action
+          alert('Download dimulai (demo). Terima kasih sudah mengunduh!');
+        }
+      });
+    });
+
+    // Accessibility: if user presses "Enter" on register link, open auth modal
+    document.getElementById('toRegister').addEventListener('click', function(e){
+      e.preventDefault();
+      // Could switch modal to register tab — for demo just show alert
+      alert('Form pendaftaran (demo).');
+    });
+
+    // Smooth scroll for internal anchors (optional nice-to-have)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if(targetId.length > 1){
+          e.preventDefault();
+          const target = document.querySelector(targetId);
+          if(target){
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
