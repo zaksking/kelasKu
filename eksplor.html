@@ -15,56 +15,67 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    :root{
-      --kk-primary: #4361ee;
-      --hero-bg: #f8f9fa;
-      --max-content-width: 1100px;
-    }
+      :root{
+        --kk-primary: #4361ee;
+        --hero-bg: #f8f9fa;
+        --max-content-width: 1100px;
+      }
 
-    body{
-      font-family: "Poppins", sans-serif;
-      color: #222;
-    }
+      body{
+        font-family: "Poppins", sans-serif;
+        color: #222;
+      }
 
-    .container-narrow { max-width: 1100px; }
+      .container-narrow { max-width: 1100px; }
 
-    /* navbar */
-    .navbar-brand{ font-weight:700; }
-    .nav-center { position:absolute; left:50%; transform:translateX(-50%); }
-    @media(max-width:992px){ .nav-center{ position:static; transform:none; margin-top:0.5rem; } }
+      /* navbar */
+      .navbar-brand{ font-weight:700; }
+      .nav-center { position:absolute; left:50%; transform:translateX(-50%); }
+      @media(max-width:992px){ .nav-center{ position:static; transform:none; margin-top:0.5rem; } }
 
-    /* search bar */
-    .search-wrapper{
-      background:#fff;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.06);
-    }
-    .search-input{
-      height:50px;
-      font-size:1.1rem;
-    }
+      /* search bar */
+      .search-wrapper{
+        background:#fff;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.06);
+      }
+      .search-input{
+        height:50px;
+        font-size:1.1rem;
+      }
 
-    /* material cards */
-    .card-materi img{ height:160px; object-fit:cover; }
-    .badge-jurusan{
-      background:var(--kk-primary);
-      color:white;
-      padding:4px 10px;
-      border-radius:6px;
-      font-size:.75rem;
-      font-weight:600;
-    }
+      /* material cards */
+      .card-materi img{ height:160px; object-fit:cover; }
+      .badge-jurusan{
+        background:var(--kk-primary);
+        color:white;
+        padding:4px 10px;
+        border-radius:6px;
+        font-size:.75rem;
+        font-weight:600;
+      }
 
-    /* footer */
-    footer{
-      background:#0f1724;
-      color:#cbd5e1;
-      padding:2.5rem 0;
-    }
-    footer a{ color:#cbd5e1; text-decoration:none; }
-    footer a:hover{ text-decoration:underline; color:white; }
-  </style>
+     /* avatar: tampilkan sebagai kotak putih kecil (bukan lingkaran) */
+     .card-materi .card-body img,
+     .card-materi .card-body img.rounded-circle {
+       width: 32px;
+       height: 32px;
+       border-radius: 6px !important; /* override kelas bootstrap .rounded-circle */
+       background: #fff;
+       object-fit: cover;
+       display: inline-block;
+     }
+
+      /* footer */
+      footer{
+        background:#0f1724;
+        color:#cbd5e1;
+        padding:2.5rem 0;
+      }
+      footer a{ color:#cbd5e1; text-decoration:none; }
+      footer a:hover{ text-decoration:underline; color:white; }
+    </style>
 </head>
 <body>
 
@@ -85,10 +96,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html#tentang">Tentang Kami</a></li>
         </ul>
 
-        <div class="d-flex">
-          <button class="btn btn-outline-primary me-2">Login</button>
-          <button class="btn btn-primary" style="background:#4361ee; border-color:#4361ee;">Daftar</button>
-        </div>
+        <!-- tombol Login / Daftar dihapus -->
       </div>
     </div>
   </nav>
@@ -149,9 +157,9 @@
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Sejarah+Indonesia" class="card-img-top" alt="">
             <div class="card-body">
-              <span class="badge-jurusan">TKJ</span>
+              <span class="badge-jurusan">X</span>
               <h6 class="mt-2 mb-1">Rangkuman Sejarah Indonesia</h6>
-              <p class="text-muted small mb-2">Ringkasan BAB 1 - 3</p>
+              <p class="text-muted small mb-2">Ringkasan bab Hindu-Buddha</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=A" class="rounded-circle me-2" width="32">
@@ -171,9 +179,9 @@
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Matematika" class="card-img-top" alt="">
             <div class="card-body">
-              <span class="badge-jurusan">RPL</span>
-              <h6 class="mt-2 mb-1">Matematika Teknik</h6>
-              <p class="text-muted small mb-2">Persamaan Linear</p>
+              <span class="badge-jurusan">X</span>
+              <h6 class="mt-2 mb-1">Matematika</h6>
+              <p class="text-muted small mb-2">Logaritma</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=S" class="rounded-circle me-2" width="32">
@@ -195,7 +203,7 @@
             <div class="card-body">
               <span class="badge-jurusan">RPL</span>
               <h6 class="mt-2 mb-1">Dasar Pemrograman</h6>
-              <p class="text-muted small mb-2">Struktur Dasar Coding</p>
+              <p class="text-muted small mb-2">Struktur Dasar HTML dan CSS</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=B" class="rounded-circle me-2" width="32">
@@ -215,13 +223,13 @@
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Produktif" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan bg-warning text-dark">AKL</span>
-              <h6 class="mt-2 mb-1">Akuntansi Dasar</h6>
-              <p class="text-muted small mb-2">Neraca & Jurnal</p>
+              <span class="badge-jurusan">RPL</span>
+              <h6 class="mt-2 mb-1">Pemograman Java</h6>
+              <p class="text-muted small mb-2">Array dan function</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=R" class="rounded-circle me-2" width="32">
-                <span class="small text-muted">Rina - AKL</span>
+                <span class="small text-muted">Rina - RPL</span>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">
@@ -237,13 +245,13 @@
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Bahasa" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan bg-danger">XII</span>
+              <span class="badge-jurusan bg-danger">X</span>
               <h6 class="mt-2 mb-1">Bahasa Indonesia</h6>
-              <p class="text-muted small mb-2">Materi Teks Eksposisi</p>
+              <p class="text-muted small mb-2">Materi Teks Hikayat</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=N" class="rounded-circle me-2" width="32">
-                <span class="small text-muted">Nina - XII</span>
+                <span class="small text-muted">Nina - RPL</span>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">
@@ -259,13 +267,13 @@
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Animasi" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan bg-info text-dark">TEI</span>
-              <h6 class="mt-2 mb-1">Dasar Elektronika</h6>
-              <p class="text-muted small mb-2">Rangkaian Dasar</p>
+              <span class="badge-jurusan bg-danger">X</span>
+              <h6 class="mt-2 mb-1">Bahasa Inggris</h6>
+              <p class="text-muted small mb-2">present continues</p>
 
               <div class="d-flex align-items-center mb-2">
                 <img src="https://placehold.co/40x40?text=F" class="rounded-circle me-2" width="32">
-                <span class="small text-muted">Fajar - TEI</span>
+                <span class="small text-muted">Fajar - TKJ</span>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">

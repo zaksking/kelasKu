@@ -125,7 +125,7 @@
         <!-- right buttons -->
         <div class="d-flex ms-auto">
           <button class="btn btn-outline-primary me-2 d-none d-lg-inline" id="btnLoginTop">Login</button>
-          <button class="btn btn-kk text-white" id="btnDaftarTop">Daftar</button>
+          <!-- Daftar dihapus -->
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@
             <a href="#materi-populer" class="btn btn-kk btn-lg text-white">Jelajahi Materi</a>
             <a href="#upload" class="btn btn-outline-secondary btn-lg">Upload Catatanmu</a>
           </div>
-          <div class="mt-4 small-muted">Bergabung dengan ribuan siswa SMK yang saling membantu.</div>
+          <div class="mt-4 small-muted">Bergabung dengan teman temanmu dan berbagi catatan!</div>
         </div>
         <div class="col-lg-5 d-none d-lg-block">
           <!-- Illustrative placeholder -->
@@ -344,7 +344,8 @@
           </form>
         </div>
         <div class="modal-footer small-muted">
-          Belum punya akun? <a href="#" id="toRegister"> Daftar</a>
+          <!-- Link pendaftaran dihapus -->
+          <span class="small-muted">Butuh akun? Hubungi admin.</span>
         </div>
       </div>
     </div>
@@ -370,8 +371,7 @@
                 <option value="">Pilih jurusan...</option>
                 <option>TKJ</option>
                 <option>RPL</option>
-                <option>OTKP</option>
-                <option>TEI</option>
+                <option>PG</option>
               </select>
             </div>
             <div class="mb-3">
@@ -404,9 +404,9 @@
     const authModal = new bootstrap.Modal(authModalEl);
     const uploadModal = new bootstrap.Modal(uploadModalEl);
 
-    // Open login/register from navbar
+    // Open login from navbar
     document.getElementById('btnLoginTop').addEventListener('click', () => authModal.show());
-    document.getElementById('btnDaftarTop').addEventListener('click', () => authModal.show());
+    // (btnDaftarTop removed)
 
     // Open upload modal from CTA
     document.getElementById('openUploadModal').addEventListener('click', () => uploadModal.show());
@@ -414,7 +414,6 @@
     // Simple auth form submission (demo)
     document.getElementById('authForm').addEventListener('submit', function(e){
       e.preventDefault();
-      // Demo behaviour: close modal and show toast/alert
       authModal.hide();
       alert('Login berhasil (demo). Selamat datang!');
       this.reset();
@@ -423,10 +422,9 @@
     // Upload form demo
     document.getElementById('uploadForm').addEventListener('submit', function(e){
       e.preventDefault();
-      // In real app you'd send file to server. Here, show success message and close modal.
       const judul = document.getElementById('judul').value;
       uploadModal.hide();
-      alert('Material "' + judul + '" berhasil diupload (demo). Terima kasih sudah berbagi!');
+      alert('Materi "' + judul + '" berhasil diupload. Akan segera di revisi oleh guru. Terima kasih sudah berbagi!');
       this.reset();
     });
 
@@ -436,21 +434,12 @@
         const id = this.dataset.id;
         const el = document.querySelector('.download-count[data-id="' + id + '"]');
         if(el){
-          // parse current count and increment
           let count = parseInt(el.textContent || '0', 10);
           count = isNaN(count) ? 1 : count + 1;
           el.textContent = count;
-          // simulate download action
           alert('Download dimulai (demo). Terima kasih sudah mengunduh!');
         }
       });
-    });
-
-    // Accessibility: if user presses "Enter" on register link, open auth modal
-    document.getElementById('toRegister').addEventListener('click', function(e){
-      e.preventDefault();
-      // Could switch modal to register tab — for demo just show alert
-      alert('Form pendaftaran (demo).');
     });
 
     // Smooth scroll for internal anchors (optional nice-to-have)
