@@ -23,11 +23,43 @@
             font-weight: 600;
             font-size: 1.4rem;
             color: #4361ee !important;
+            transition: all 0.3s ease;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: #2f45cc !important;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #4361ee !important;
+            transform: translateY(-2px);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4361ee;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .btn-primary {
             background-color: #4361ee !important;
             border-color: #4361ee !important;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
         }
 
         footer {
