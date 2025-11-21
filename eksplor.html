@@ -45,6 +45,23 @@
         font-size:1.1rem;
       }
 
+      /* Materi filter buttons dengan hover effect */
+      .materi-filter-btn {
+        transition: all 0.3s ease;
+      }
+
+      .materi-filter-btn:hover {
+        background-color: var(--bg-color, #4361ee) !important;
+        border-color: var(--bg-color, #4361ee) !important;
+        color: white !important;
+      }
+
+      .materi-filter-btn.active {
+        background-color: var(--bg-color, #4361ee);
+        border-color: var(--bg-color, #4361ee);
+        color: white;
+      }
+
       /* material cards */
       .card-materi img{ height:160px; object-fit:cover; }
       .badge-jurusan{
@@ -106,38 +123,28 @@
     <div class="container container-narrow">
       
       <div class="search-wrapper mb-4">
-        <input type="text" placeholder="Cari materi, judul, mapel..." class="form-control search-input">
+        <input type="text" id="searchInput" placeholder="Cari materi, judul, mapel..." class="form-control search-input">
       </div>
 
-      <!-- FILTERS -->
-      <div class="row g-3">
-        <div class="col-md-4">
-          <select class="form-select">
-            <option selected>Semua Jurusan</option>
-            <option>TKJ</option>
-            <option>RPL</option>
-            <option>AKL</option>
-            <option>TEI</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <select class="form-select">
-            <option selected>Semua Mata Pelajaran</option>
-            <option>Matematika</option>
-            <option>Bahasa Indonesia</option>
-            <option>Pemrograman Dasar</option>
-            <option>Produktif Teknik</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <select class="form-select">
-            <option selected>Semua Kelas</option>
-            <option>X</option>
-            <option>XI</option>
-            <option>XII</option>
-          </select>
+      <!-- PILIH MATERI -->
+      <div class="mb-4">
+        <h6 class="mb-3">Pilih Materi</h6>
+        <div class="row g-2">
+          <div class="col-auto">
+            <button class="btn btn-outline-primary materi-filter-btn active" data-filter="">Semua</button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-secondary materi-filter-btn" data-filter="Umum" style="--bg-color:#6c757d;">Umum</button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-warning materi-filter-btn" data-filter="PG" style="--bg-color:#fd7e14;">PG</button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-info materi-filter-btn" data-filter="TKJ" style="--bg-color:#0d6efd;">TKJ</button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-success materi-filter-btn" data-filter="RPL" style="--bg-color:#198754;">RPL</button>
+          </div>
         </div>
       </div>
 
@@ -150,19 +157,19 @@
 
       <h4 class="mb-4">Hasil Eksplor Materi</h4>
 
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div id="materiContainer" class="row row-cols-1 row-cols-md-3 g-4">
 
         <!-- CARD 1 -->
-        <div class="col">
+        <div class="col" data-judul="Rangkuman Sejarah Indonesia" data-mapel="Sejarah" data-jurusan="TKJ" data-badge-jurusan="Umum">
           <div class="card card-materi h-100">
-            <img src="https://placehold.co/600x360?text=Sejarah+Indonesia" class="card-img-top" alt="">
+            <img src="https://placehold.co/600x360?text=Sejarah" class="card-img-top" alt="">
             <div class="card-body">
-              <span class="badge-jurusan">X</span>
+              <span class="badge-jurusan" style="background:#6c757d;">Umum</span>
               <h6 class="mt-2 mb-1">Rangkuman Sejarah Indonesia</h6>
               <p class="text-muted small mb-2">Ringkasan bab Hindu-Buddha</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=A" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=A" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Andi - TKJ</span>
               </div>
 
@@ -175,16 +182,16 @@
         </div>
 
         <!-- CARD 2 -->
-        <div class="col">
+        <div class="col" data-judul="Matematika Logaritma" data-mapel="Matematika" data-jurusan="RPL" data-badge-jurusan="Umum">
           <div class="card card-materi h-100">
             <img src="https://placehold.co/600x360?text=Matematika" class="card-img-top" alt="">
             <div class="card-body">
-              <span class="badge-jurusan">X</span>
+              <span class="badge-jurusan" style="background:#6c757d;">Umum</span>
               <h6 class="mt-2 mb-1">Matematika</h6>
               <p class="text-muted small mb-2">Logaritma</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=S" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=S" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Siti - RPL</span>
               </div>
 
@@ -197,16 +204,16 @@
         </div>
 
         <!-- CARD 3 -->
-        <div class="col">
+        <div class="col" data-judul="Dasar Pemrograman HTML CSS" data-mapel="Web" data-jurusan="RPL" data-badge-jurusan="RPL">
           <div class="card card-materi h-100">
-            <img src="https://placehold.co/600x360?text=Pemrograman" class="card-img-top" alt="">
+            <img src="https://placehold.co/600x360?text=Web+Development" class="card-img-top" alt="">
             <div class="card-body">
-              <span class="badge-jurusan">RPL</span>
-              <h6 class="mt-2 mb-1">Dasar Pemrograman</h6>
+              <span class="badge-jurusan" style="background:#198754;">RPL</span>
+              <h6 class="mt-2 mb-1">Dasar Web Development</h6>
               <p class="text-muted small mb-2">Struktur Dasar HTML dan CSS</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=B" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=B" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Budi - RPL</span>
               </div>
 
@@ -219,16 +226,16 @@
         </div>
 
         <!-- CARD 4 -->
-        <div class="col">
+        <div class="col" data-judul="Pemograman Java Array Function" data-mapel="Java" data-jurusan="RPL" data-badge-jurusan="RPL">
           <div class="card card-materi h-100">
-            <img src="https://placehold.co/600x360?text=Produktif" class="card-img-top">
+            <img src="https://placehold.co/600x360?text=Java" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan">RPL</span>
+              <span class="badge-jurusan" style="background:#198754;">RPL</span>
               <h6 class="mt-2 mb-1">Pemograman Java</h6>
               <p class="text-muted small mb-2">Array dan function</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=R" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=R" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Rina - RPL</span>
               </div>
 
@@ -241,16 +248,16 @@
         </div>
 
         <!-- CARD 5 -->
-        <div class="col">
+        <div class="col" data-judul="Bahasa Indonesia Teks Hikayat" data-mapel="Bahasa Indonesia" data-jurusan="RPL" data-badge-jurusan="Umum">
           <div class="card card-materi h-100">
-            <img src="https://placehold.co/600x360?text=Bahasa" class="card-img-top">
+            <img src="https://placehold.co/600x360?text=Bahasa Indonesia" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan bg-danger">X</span>
+              <span class="badge-jurusan" style="background:#6c757d;">Umum</span>
               <h6 class="mt-2 mb-1">Bahasa Indonesia</h6>
               <p class="text-muted small mb-2">Materi Teks Hikayat</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=N" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=N" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Nina - RPL</span>
               </div>
 
@@ -263,21 +270,219 @@
         </div>
 
         <!-- CARD 6 -->
-        <div class="col">
+        <div class="col" data-judul="Bahasa Inggris Present Continues" data-mapel="Inggris" data-jurusan="TKJ" data-badge-jurusan="Umum">
           <div class="card card-materi h-100">
-            <img src="https://placehold.co/600x360?text=Animasi" class="card-img-top">
+            <img src="https://placehold.co/600x360?text=English" class="card-img-top">
             <div class="card-body">
-              <span class="badge-jurusan bg-danger">X</span>
+              <span class="badge-jurusan" style="background:#6c757d;">Umum</span>
               <h6 class="mt-2 mb-1">Bahasa Inggris</h6>
-              <p class="text-muted small mb-2">present continues</p>
+              <p class="text-muted small mb-2">Present Continuous Tense</p>
 
               <div class="d-flex align-items-center mb-2">
-                <img src="https://placehold.co/40x40?text=F" class="rounded-circle me-2" width="32">
+                <img src="https://placehold.co/40x40?text=F" class="me-2" width="32" style="border-radius:6px;background:#fff;">
                 <span class="small text-muted">Fajar - TKJ</span>
               </div>
 
               <div class="d-flex justify-content-between align-items-center">
                 <span class="text-muted small"><i class="bi bi-download me-1"></i>32</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7 - TKJ: Jaringan Komputer -->
+        <div class="col" data-judul="Jaringan Komputer OSI Layer Model" data-mapel="Jaringan" data-jurusan="TKJ" data-badge-jurusan="TKJ">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Jaringan" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#0d6efd;">TKJ</span>
+              <h6 class="mt-2 mb-1">Jaringan Komputer</h6>
+              <p class="text-muted small mb-2">Model OSI Layer dan TCP/IP</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=H" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Hendra - TKJ</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>203</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8 - TKJ: Linux & Server -->
+        <div class="col" data-judul="Linux Server Administration Ubuntu" data-mapel="Linux" data-jurusan="TKJ" data-badge-jurusan="TKJ">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Linux+Server" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#0d6efd;">TKJ</span>
+              <h6 class="mt-2 mb-1">Linux Server Administration</h6>
+              <p class="text-muted small mb-2">Ubuntu, Command Line, User Management</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=D" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Doni - TKJ</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>178</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 9 - TKJ: Cisco CCNA -->
+        <div class="col" data-judul="Cisco CCNA Routing Switching" data-mapel="Cisco" data-jurusan="TKJ" data-badge-jurusan="TKJ">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Cisco+CCNA" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#0d6efd;">TKJ</span>
+              <h6 class="mt-2 mb-1">Cisco CCNA</h6>
+              <p class="text-muted small mb-2">Routing, Switching, dan Troubleshooting</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=G" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Gunawan - TKJ</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>145</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 10 - RPL: Database SQL -->
+        <div class="col" data-judul="Database SQL MySQL Query Advanced" data-mapel="Database" data-jurusan="RPL" data-badge-jurusan="RPL">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Database+SQL" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#198754;">RPL</span>
+              <h6 class="mt-2 mb-1">Database SQL MySQL</h6>
+              <p class="text-muted small mb-2">JOIN, GROUP BY, Subquery, Normalisasi</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=I" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Indri - RPL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>189</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 11 - GameDev: Unity Intro -->
+        <div class="col" data-judul="Game Development Intro Unity Engine" data-mapel="GameDev" data-jurusan="PG" data-badge-jurusan="PG">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Game+Development" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#fd7e14;">PG</span>
+              <h6 class="mt-2 mb-1">Game Development Intro</h6>
+              <p class="text-muted small mb-2">Konsep Game, Engine, Scene dan Asset</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=J" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Joko - PG</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>156</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 12 - Unity -->
+        <div class="col" data-judul="Unity Engine 2D Game Creation" data-mapel="Unity" data-jurusan="PG" data-badge-jurusan="PG">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Unity+2D" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#fd7e14;">PG</span>
+              <h6 class="mt-2 mb-1">Unity 2D Game Creation</h6>
+              <p class="text-muted small mb-2">Sprites, Physics, Animation, Scripting</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=K" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Krisna - PG</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>134</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 13 - Unreal Engine -->
+        <div class="col" data-judul="Unreal Engine 3D Game Development" data-mapel="Unreal" data-jurusan="PG" data-badge-jurusan="PG">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Unreal+Engine" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#fd7e14;">PG</span>
+              <h6 class="mt-2 mb-1">Unreal Engine 3D</h6>
+              <p class="text-muted small mb-2">Blueprint, Lighting, Material, Packaging</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=L" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Lala - PG</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>112</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 14 - C++ Programming -->
+        <div class="col" data-judul="C++ Programming Game Logic" data-mapel="C++" data-jurusan="RPL" data-badge-jurusan="RPL">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=C++" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#198754;">RPL</span>
+              <h6 class="mt-2 mb-1">C++ Programming</h6>
+              <p class="text-muted small mb-2">Pointer, OOP, STL, Game Logic</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=M" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Mira - RPL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>98</span>
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 15 - Python -->
+        <div class="col" data-judul="Python Programming Fundamental" data-mapel="Python" data-jurusan="RPL" data-badge-jurusan="RPL">
+          <div class="card card-materi h-100">
+            <img src="https://placehold.co/600x360?text=Python" class="card-img-top">
+            <div class="card-body">
+              <span class="badge-jurusan" style="background:#198754;">RPL</span>
+              <h6 class="mt-2 mb-1">Python Programming</h6>
+              <p class="text-muted small mb-2">Syntax, Library, Framework Django</p>
+
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://placehold.co/40x40?text=O" class="me-2" width="32" style="border-radius:6px;background:#fff;">
+                <span class="small text-muted">Oka - RPL</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small"><i class="bi bi-download me-1"></i>145</span>
                 <button class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-arrow-down"></i></button>
               </div>
             </div>
@@ -321,6 +526,57 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Search & Filter functionality
+    const searchInput = document.getElementById('searchInput');
+    const materiFilterBtns = document.querySelectorAll('.materi-filter-btn');
+    const materiContainer = document.getElementById('materiContainer');
+    const cards = materiContainer.querySelectorAll('.col');
+    let activeBadgeFilter = '';
+
+    function filterCards() {
+      const searchValue = searchInput.value.toLowerCase();
+
+      cards.forEach(card => {
+        const judul = card.dataset.judul.toLowerCase();
+        const badgeJurusan = card.dataset.badgeJurusan;
+
+        const matchSearch = judul.includes(searchValue);
+        const matchBadge = !activeBadgeFilter || badgeJurusan === activeBadgeFilter;
+
+        if (matchSearch && matchBadge) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Materi button filter
+    materiFilterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        materiFilterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        activeBadgeFilter = this.dataset.filter;
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener('keyup', filterCards);
+
+    // Download button functionality
+    const downloadBtns = document.querySelectorAll('.btn-outline-primary[class*="btn-sm"]');
+    downloadBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Ambil judul materi dari card terdekat
+        const card = this.closest('.card-materi');
+        const judul = card.querySelector('h6').textContent;
+        
+        // Tampilkan alert
+        alert(`"${judul}" telah didownload (demo)`);
+      });
+    });
   </script>
 
 </body>
